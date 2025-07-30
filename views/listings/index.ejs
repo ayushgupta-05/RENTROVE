@@ -1,0 +1,114 @@
+<% layout('/layouts/boilerplate') -%>
+<!-- <style>
+  #filters{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .filter{
+    text-align: center;
+    margin-right: 1rem;
+    margin-top: 1.5rem;
+    opacity: 0.8;
+  }
+  .filter:hover{
+    opacity: 1;
+    cursor: pointer;
+  }
+  .filter a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .active-filter {
+    opacity: 1 !important;
+    border-bottom: 2px solid black;
+  }
+  /* .filter p{
+    font-size: 0.8rem;
+  } */
+</style>
+
+<body>
+<div id="filters">
+    <div class="filter"> 
+      <a href="/listings?category=Trending"> 
+        <div>  <i class="fa-solid fa-fire-flame-curved"></i>    </div>
+        <p>Trending</p>
+      </a>
+    </div>
+    <div class="filter"> 
+      <a href="/listings?category=Rooms"> 
+      <div> <i class="fa-solid fa-bed"></i>    </div>
+      <p>Rooms</p>
+      </a>
+    </div>
+    <div class="filter"> 
+      <a href="/listings?category=Inconics"> 
+      <div> <i class="fa-solid fa-building-flag"></i>    </div>
+      <p>Iconics</p>
+    </a>
+    </div>
+    <div class="filter"> 
+      <a href="/listings?category=Mountains"> 
+      <div> <i class="fa-solid fa-mountain-sun"></i>    </div>
+      <p>Mountains</p>
+      </a>
+    </div>
+    <div class="filter"> 
+      <a href="/listings?category=Villa"> 
+      <div> <i class="fa-solid fa-house-chimney"></i>    </div>
+      <p>Villa</p>
+      </a>
+    </div>
+    <div class="filter"> 
+      <a href="/listings?category=Pool"> 
+      <div> <i class="fa-solid fa-person-swimming"></i>    </div>
+      <p>Pool</p>
+      </a>
+    </div>
+    <div class="filter"> 
+       <a href="/listings?category=Camping"> 
+      <div><i class="fa-solid fa-campground"></i>    </div>
+      <p>Camping</p>
+      </a>
+    </div>
+    <div class="filter"> 
+      <a href="/listings?category=Farms"> 
+      <div> <i class="fa-solid fa-house-user"></i>    </div>
+      <p>Farms</p>
+      </a> 
+    </div>
+    <div class="filter"> 
+      <a href="/listings?category=Arctic"> 
+      <div>  <i class="fa-solid fa-snowman"></i>  </div>
+      <p>Artic</p>
+      </a>
+    </div>
+    
+</div> -->
+
+<!-- We have added the New Listing Route through the Navbar --->
+
+    <!-- <form method="GET" action="/listings/new">
+        <button>Create Listing</button>
+    </form> -->
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+    <% for (let listing of allListings) { %>
+        <a href="/listings/<%= listing._id %>" class="listing-link">
+        <div class="card col listing-card" >
+          <img src="<%= listing.image.url %>" class="card-img-top" alt="Listing image" style="height: 20rem; " >
+          <div class="card-img-overlay"></div>
+          <div class="card-body">
+            <p class="card-text">
+          <b>  <%= listing.title %>  </b> <br>
+                <%= listing.price.toLocaleString("en-IN") %> / night <br>
+            </p>
+          </div>
+        </div>
+    </a>
+      <% } %>
+</div>
+
+     
+        
+</body>
